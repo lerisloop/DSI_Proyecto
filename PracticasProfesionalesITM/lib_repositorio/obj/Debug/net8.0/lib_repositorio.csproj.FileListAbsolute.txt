@@ -1,0 +1,15 @@
+C:\Users\isara\source\repos\DSI_Proyecto\PracticasProfesionalesITM\lib_repositorio\bin\Debug\net8.0\lib_repositorio.deps.json
+C:\Users\isara\source\repos\DSI_Proyecto\PracticasProfesionalesITM\lib_repositorio\bin\Debug\net8.0\lib_repositorio.runtimeconfig.json
+C:\Users\isara\source\repos\DSI_Proyecto\PracticasProfesionalesITM\lib_repositorio\bin\Debug\net8.0\lib_repositorio.dll
+C:\Users\isara\source\repos\DSI_Proyecto\PracticasProfesionalesITM\lib_repositorio\bin\Debug\net8.0\lib_repositorio.pdb
+C:\Users\isara\source\repos\DSI_Proyecto\PracticasProfesionalesITM\lib_repositorio\obj\Debug\net8.0\lib_repositorio.csproj.AssemblyReference.cache
+C:\Users\isara\source\repos\DSI_Proyecto\PracticasProfesionalesITM\lib_repositorio\obj\Debug\net8.0\lib_repositorio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\isara\source\repos\DSI_Proyecto\PracticasProfesionalesITM\lib_repositorio\obj\Debug\net8.0\lib_repositorio.AssemblyInfoInputs.cache
+C:\Users\isara\source\repos\DSI_Proyecto\PracticasProfesionalesITM\lib_repositorio\obj\Debug\net8.0\lib_repositorio.AssemblyInfo.cs
+C:\Users\isara\source\repos\DSI_Proyecto\PracticasProfesionalesITM\lib_repositorio\obj\Debug\net8.0\lib_repositorio.csproj.CoreCompileInputs.cache
+C:\Users\isara\source\repos\DSI_Proyecto\PracticasProfesionalesITM\lib_repositorio\obj\Debug\net8.0\lib_repositorio.sourcelink.json
+C:\Users\isara\source\repos\DSI_Proyecto\PracticasProfesionalesITM\lib_repositorio\obj\Debug\net8.0\lib_repositorio.dll
+C:\Users\isara\source\repos\DSI_Proyecto\PracticasProfesionalesITM\lib_repositorio\obj\Debug\net8.0\refint\lib_repositorio.dll
+C:\Users\isara\source\repos\DSI_Proyecto\PracticasProfesionalesITM\lib_repositorio\obj\Debug\net8.0\lib_repositorio.pdb
+C:\Users\isara\source\repos\DSI_Proyecto\PracticasProfesionalesITM\lib_repositorio\obj\Debug\net8.0\lib_repositorio.genruntimeconfig.cache
+C:\Users\isara\source\repos\DSI_Proyecto\PracticasProfesionalesITM\lib_repositorio\obj\Debug\net8.0\ref\lib_repositorio.dll

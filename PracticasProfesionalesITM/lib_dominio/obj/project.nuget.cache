@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "kBgDqKDyZp4=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\isara\\source\\repos\\DSI_Proyecto\\PracticasProfesionalesITM\\lib_dominio\\lib_dominio.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\isara\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.7\\microsoft.extensions.dependencyinjection.abstractions.10.0.7.nupkg.sha512",
+    "C:\\Users\\isara\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\10.0.7\\microsoft.extensions.logging.abstractions.10.0.7.nupkg.sha512",
+    "C:\\Users\\isara\\.nuget\\packages\\system.diagnostics.diagnosticsource\\10.0.7\\system.diagnostics.diagnosticsource.10.0.7.nupkg.sha512"
+  ],
+  "logs": []
+}
