@@ -18,3 +18,23 @@ export const login = (email, password) => {
         }, 800);
     });
 };
+export const register = (data) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const exists = users.find(u => u.email === data.email);
+
+            if (exists) {
+                reject("El usuario ya existe");
+            } else {
+                const newUser = {
+                    id: users.length + 1,
+                    ...data,
+                    role: "user"
+                };
+
+                users.push(newUser);
+                resolve({ message: "Registro exitoso" });
+            }
+        }, 800);
+    });
+};

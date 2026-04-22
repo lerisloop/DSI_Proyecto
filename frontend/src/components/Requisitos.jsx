@@ -10,8 +10,16 @@ function Requisitos() {
             </p>
 
             <p>
-                De manera general, pueden incluir la aprobación de asignaturas,
-                cumplimiento de créditos y requisitos definidos por la institución.
+                De manera general, algunos requisitos pueden incluir la aprobación de
+                determinadas asignaturas, haber alcanzado un semestre específico o
+                cumplir con un número mínimo de créditos académicos aprobados.
+                Además, se recomienda realizar las prácticas académicas normalmente
+                entre el quinto y sexto semestre, etapa en la que el estudiante ya
+                posee bases conceptuales y técnicas suficientes para su desempeño profesional. Para todas las carreras es un requisito el haber cursado el preprácticas
+            </p>
+            <p>
+                Para conocer los requisitos específicos correspondientes a tu programa académico, consulta el archivo detallado disponible a continuación,
+                donde encontrarás la información organizada por carrera.
             </p>
         </section>
     );

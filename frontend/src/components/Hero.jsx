@@ -1,5 +1,11 @@
 // src/components/Hero.jsx
+import { useNavigate } from "react-router-dom";
+
+
+
+
 function Hero() {
+    const navigate = useNavigate();
     return (
         <section style={styles.hero}>
             <div style={styles.left}>
@@ -19,12 +25,13 @@ function Hero() {
                 </p>
             </div>
 
-            <div style={styles.right}>
-                <button style={styles.startBtn}>¡Empezar!</button>
-            </div>
+            <button onClick={() => navigate("/login")}>
+                ¡Empezar!
+        </button>
         </section>
     );
 }
+
 
 const styles = {
     hero: {

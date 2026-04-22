@@ -13,10 +13,10 @@ function Navbar() {
             </div>
 
             <div>
-                <Link to="/register">
+                <Link to="/Register">
                     <button style={styles.btn}>Nuevo Usuario</button>
                 </Link>
-                <Link to="/login">
+                <Link to="/Login">
                     <button style={styles.btnOutline}>Iniciar Sesión</button>
                 </Link>
             </div>
