@@ -1,20 +1,24 @@
 // src/router/AppRouter.jsx
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Login from "../pages/Login.jsx";
-import Dashboard from "../pages/Dashboard.jsx";
-import { getSession } from "../utils/session";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-const PrivateRoute = ({ children }) => {
-    const user = getSession();
-    return user ? children : <Navigate to="/login" />;
-};
+import Login from "../pages/Login";
+import Register from "../pages/Register";
+import Dashboard from "../pages/Dashboard";
+import Home from "../pages/Home";
+import PrivateRoute from "./PrivateRoute";
+import Prueva from "../pages/prueva.jsx"
 
 function AppRouter() {
     return (
         <BrowserRouter>
             <Routes>
+                {/* públicas */}
+                <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/prueva" element={<Prueva />} />
 
+                {/* protegida */}
                 <Route
                     path="/dashboard"
                     element={
@@ -23,8 +27,6 @@ function AppRouter() {
                         </PrivateRoute>
                     }
                 />
-
-                <Route path="*" element={<Navigate to="/login" />} />
             </Routes>
         </BrowserRouter>
     );

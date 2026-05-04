@@ -1,19 +1,20 @@
 // src/pages/Register.jsx
 import { useState } from "react";
-import { register } from "../services/authService";
 import { useNavigate } from "react-router-dom";
 
 function Register() {
     const navigate = useNavigate();
+    const [role, setRole] = useState("Estudiante");
 
     const [form, setForm] = useState({
         name: "",
         email: "",
-        password: ""
+        age: "",
+        career: "",
+        semester: "",
+        password: "",
+        confirmPassword: ""
     });
-
-    const [error, setError] = useState("");
-    const [success, setSuccess] = useState("");
 
     const handleChange = (e) => {
         setForm({
@@ -22,63 +23,175 @@ function Register() {
         });
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        setError("");
-        setSuccess("");
 
-        try {
-            await register(form);
-            setSuccess("Usuario registrado correctamente");
-
-            setTimeout(() => {
-                navigate("/login");
-            }, 1000);
-
-        } catch (err) {
-            setError(err);
+        if (form.password !== form.confirmPassword) {
+            alert("Las contraseñas no coinciden");
+            return;
         }
+
+        console.log("Registro:", form);
+        navigate("/login");
     };
 
     return (
-        <div style={{ padding: 20 }}>
-            <h2>Registro</h2>
+        <div style={styles.container}>
 
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    name="name"
-                    placeholder="Nombre"
-                    value={form.name}
-                    onChange={handleChange}
-                />
-                <br /><br />
+            {/* NAV */}
+            <div style={styles.nav}>
+                <div style={styles.logo}>ITM</div>
+                <button style={styles.backBtn} onClick={() => navigate("/")}>
+                    ← Regresar
+                </button>
+            </div>
 
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Correo"
-                    value={form.email}
-                    onChange={handleChange}
-                />
-                <br /><br />
+            {/* CARD */}
+            <div style={styles.card}>
+                <h2 style={styles.title}>Nuevo Usuario</h2>
 
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Contraseña"
-                    value={form.password}
-                    onChange={handleChange}
-                />
-                <br /><br />
+                <p>Tipo de perfil</p>
 
-                <button type="submit">Registrarse</button>
-            </form>
+                <div style={styles.roles}>
+                    {["Estudiante", "Administrador", "Empresa"].map(r => (
+                        <button
+                            key={r}
+                            onClick={() => setRole(r)}
+                            style={{
+                                ...styles.roleBtn,
+                                background: role === r ? "#0b0b4f" : "#f1f1f1",
+                                color: role === r ? "white" : "black"
+                            }}
+                        >
+                            {r}
+                        </button>
+                    ))}
+                </div>
 
-            {error && <p style={{ color: "red" }}>{error}</p>}
-            {success && <p style={{ color: "green" }}>{success}</p>}
+                <form onSubmit={handleSubmit}>
+                    <input name="name" placeholder="Nombre completo" style={styles.input} onChange={handleChange} />
+                    <input name="email" placeholder="Correo electrónico" style={styles.input} onChange={handleChange} />
+                    <input name="age" placeholder="Edad" style={styles.input} onChange={handleChange} />
+                    <input name="career" placeholder="Carrera" style={styles.input} onChange={handleChange} />
+                    <input name="semester" placeholder="Semestre" style={styles.input} onChange={handleChange} />
+
+                    <div style={styles.passwordBox}>
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Contraseña"
+                            style={styles.inputNoBorder}
+                            onChange={handleChange}
+                        />
+                        👁️
+                    </div>
+
+                    <div style={styles.passwordBox}>
+                        <input
+                            type="password"
+                            name="confirmPassword"
+                            placeholder="Confirmar contraseña"
+                            style={styles.inputNoBorder}
+                            onChange={handleChange}
+                        />
+                        👁️
+                    </div>
+
+                    <button style={styles.submitBtn}>
+                        Registrarme como {role}
+                    </button>
+                </form>
+
+                <p style={{ textAlign: "center" }}>
+                    ¿Ya tienes cuenta?{" "}
+                    <span style={styles.link} onClick={() => navigate("/login")}>
+            Iniciar sesión
+          </span>
+                </p>
+            </div>
         </div>
+
     );
+
 }
+const styles = {
+    container: {
+        height: "100vh",
+        background: "#f2f2f2"
+    },
+    nav: {
+        display: "flex",
+        justifyContent: "space-between",
+        padding: "15px 30px",
+        background: "#0b0b4f",
+        color: "white"
+    },
+    logo: { fontWeight: "bold" },
+    backBtn: {
+        background: "white",
+        border: "none",
+        padding: "8px 15px",
+        borderRadius: "20px"
+    },
+    card: {
+        width: "360px",
+        margin: "60px auto",
+        background: "white",
+        padding: "25px",
+        borderRadius: "12px",
+        boxShadow: "0 4px 10px rgba(0,0,0,0.1)"
+    },
+    title: {
+        textAlign: "center",
+        color: "#0b0b4f"
+    },
+    roles: {
+        display: "flex",
+        gap: "10px",
+        marginBottom: "15px"
+    },
+    roleBtn: {
+        flex: 1,
+        border: "none",
+        padding: "8px",
+        borderRadius: "20px",
+        cursor: "pointer"
+    },
+    input: {
+        width: "100%",
+        padding: "10px",
+        marginBottom: "10px",
+        borderRadius: "8px",
+        border: "1px solid #ccc"
+    },
+    passwordBox: {
+        display: "flex",
+        alignItems: "center",
+        border: "1px solid #ccc",
+        borderRadius: "8px",
+        padding: "0 10px",
+        marginBottom: "10px"
+    },
+    inputNoBorder: {
+        border: "none",
+        outline: "none",
+        flex: 1,
+        padding: "10px"
+    },
+    submitBtn: {
+        width: "100%",
+        padding: "12px",
+        background: "#1a1a1a",
+        color: "white",
+        border: "none",
+        borderRadius: "8px",
+        marginTop: "10px"
+    },
+    link: {
+        color: "#0b0b4f",
+        cursor: "pointer",
+        fontWeight: "bold"
+    }
+};
 
 export default Register;

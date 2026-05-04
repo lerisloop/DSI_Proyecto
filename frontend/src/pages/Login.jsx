@@ -1,55 +1,90 @@
 // src/pages/Login.jsx
 import { useState } from "react";
-import { login } from "../services/authService";
-import { saveSession } from "../utils/session";
 import { useNavigate } from "react-router-dom";
-
+import "./Login.css"
 function Login() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
     const navigate = useNavigate();
+    const [role, setRole] = useState("Estudiante");
+    const handleLogin = (e) => {
+        e.preventDefault(); // 🔥 clave
 
-    const handleLogin = async (e) => {
-        e.preventDefault();
-        setError("");
+        const user = {
+            name: "Juan García",
+            email: "juan@example.com",
+            role: role
+        };
 
-        try {
-            const user = await login(email, password);
-            saveSession(user);
-            navigate("/dashboard");
-        } catch (err) {
-            setError(err);
-        }
+        localStorage.setItem("user", JSON.stringify(user));
+        navigate("/dashboard");
     };
-
     return (
-        <div style={{ padding: 20 }}>
-            <h2>Login</h2>
+        <div className="container">
 
-            <form onSubmit={handleLogin}>
+            {/* NAV SUPERIOR */}
+            <div className="nav">
+                <div className="logo">ITM</div>
+                <button className="backBtn" onClick={() => navigate("/")}>
+                    ← Regresar
+                </button>
+            </div>
+
+            {/* CARD LOGIN */}
+            <div className="card">
+                <h2 className="title">Iniciar Sesión</h2>
+
+                <p>Tipo de perfil</p>
+
+                <div className="roles">
+                    {["Estudiante", "Administrador", "Empresa"].map(r => (
+                        <button
+                            key={r}
+                            onClick={() => setRole(r)}
+                            className={`roleBtn ${role === r ? "activeRole" : ""}`}
+                        >
+                            {r}
+                        </button>
+                    ))}
+                </div>
+
                 <input
+                    className="input"
                     type="email"
-                    placeholder="Correo"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
+                    placeholder="Correo electrónico"
                 />
-                <br /><br />
 
-                <input
-                    type="password"
-                    placeholder="Contraseña"
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
-                />
-                <br /><br />
+                <div className="passwordBox">
+                    <input
+                        className="inputNoBorder"
+                        type="password"
+                        placeholder="Contraseña"
+                    />
+                    
+                </div>
 
-                <button type="submit">Ingresar</button>
-            </form>
+                <form onSubmit={handleLogin}>
+                    <button className="loginBtn" type="submit">Iniciar Sesión</button>
+                </form>
 
-            {error && <p style={{ color: "red" }}>{error}</p>}
+                <div className="testBox">
+                    <p><strong>Credenciales de prueba (Estudiante):</strong></p>
+                    <p>Email: juan@example.com</p>
+                    <p>Contraseña: 1234</p>
+                </div>
+
+                <p style={{ textAlign: "center" }}>
+                    ¿No tienes cuenta?{" "}
+                    <span
+                        className="link"
+                        onClick={() => navigate("/register")}
+                    >
+                Regístrate
+            </span>
+                </p>
+            </div>
         </div>
+
     );
 }
+
 
 export default Login;
